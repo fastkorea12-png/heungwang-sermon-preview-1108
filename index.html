@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>흥왕교회 쇼츠 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: one job first (pick 3 of 6 short videos), a fixed tray that collects the picks, sermon material below. */
+  :root {
+    --bg:#eef0f3; --card:#ffffff; --ink:#1c2541; --sub:#5a6278; --line:#d6dae3;
+    --pick:#ffd21f; --pick-ink:#1c2541; --tray:#1c2541; --tray-ink:#ffffff; --tray-sub:#b9c1d6;
+    --brush:"East Sea Dokdo", "Apple SD Gothic Neo", "Noto Sans KR", cursive;
+    --body:"Noto Sans KR", -apple-system, "Apple SD Gothic Neo", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg:#11141c; --card:#1b1f2b; --ink:#eceef4; --sub:#a0a7ba; --line:#2f3545;
+    --tray:#262c3d; --tray-ink:#ffffff; --tray-sub:#b9c1d6; color-scheme:dark; } }
+  :root[data-theme="dark"] {
+    --bg:#11141c; --card:#1b1f2b; --ink:#eceef4; --sub:#a0a7ba; --line:#2f3545;
+    --tray:#262c3d; --tray-ink:#ffffff; --tray-sub:#b9c1d6; color-scheme:dark; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 var(--body); }
+  main { max-width:1040px; margin:0 auto; padding-block:32px 170px;
+         padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
+  h1 { font:400 clamp(58px, 13vw, 92px)/.95 var(--brush); margin:0; letter-spacing:-1px; text-wrap:balance; }
+  .meta { color:var(--sub); font-size:14px; margin:8px 0 0; }
+  .lead { font-size:18px; font-weight:500; margin:22px 0 4px; max-width:40em; }
+  .sub { color:var(--sub); font-size:14px; margin:0; max-width:44em; }
+  h2 { font-size:21px; line-height:1.35; margin:52px 0 12px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:18px; margin-top:22px; }
+  .short { background:var(--card); border:2px solid var(--line); border-radius:12px; padding:12px; display:flex; flex-direction:column; gap:10px; min-width:0; }
+  .short.on { border-color:var(--pick); box-shadow:0 0 0 2px var(--pick); }
+  video { display:block; background:#000; border-radius:8px; }
+  .short video { width:100%; aspect-ratio:9/16; object-fit:contain; }
+  .short h3 { font-size:18px; line-height:1.35; margin:2px 0 0; text-wrap:balance; }
+  .num { color:var(--sub); font-size:13px; font-weight:500; font-variant-numeric:tabular-nums; }
+  .desc { font-size:14px; margin:0; }
+  .where { color:var(--sub); font-size:13px; margin:0; font-variant-numeric:tabular-nums; }
+  .choose { margin-top:auto; font:700 16px var(--body); min-height:48px; border-radius:8px; border:2px solid var(--ink); background:transparent; color:var(--ink); cursor:pointer; }
+  .short.on .choose { background:var(--pick); border-color:var(--pick); color:var(--pick-ink); }
+  .choose:disabled { opacity:.4; cursor:not-allowed; }
+  .dl { display:flex; flex-wrap:wrap; gap:6px 14px; font-size:13px; }
+  a { color:inherit; text-underline-offset:3px; }
+  button:focus-visible, a:focus-visible, textarea:focus-visible, video:focus-visible { outline:3px solid #2f6fed; outline-offset:2px; }
+  .note { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-top:22px; font-size:14px; }
+  .note p { margin:0; } .note p + p { margin-top:6px; }
+  label { display:block; font-weight:500; margin:28px 0 6px; }
+  textarea { width:100%; min-height:88px; font:16px/1.5 var(--body); color:var(--ink); background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+  .wide { display:block; width:100%; max-width:720px; aspect-ratio:16/9; object-fit:contain; border-radius:8px; }
+  .parts { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
+  .parts button, .chap button { font:inherit; color:inherit; background:transparent; border:1px solid var(--line); border-radius:6px; cursor:pointer; }
+  .parts button { padding:5px 11px; font-size:14px; font-variant-numeric:tabular-nums; }
+  .parts button.on { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .chap { list-style:none; padding:0; margin:14px 0 0; columns:2; column-gap:24px; font-size:14px; }
+  .chap li { break-inside:avoid; margin:0 0 7px; }
+  .chap button { padding:1px 7px; margin-right:7px; font-size:13px; font-variant-numeric:tabular-nums; }
+  .tray { position:fixed; left:0; right:0; bottom:0; z-index:5; background:var(--tray); color:var(--tray-ink);
+          padding:12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+  .tray > div { max-width:1040px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; }
+  .count { font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .picked { flex:1 1 220px; min-width:0; color:var(--tray-sub); font-size:14px; line-height:1.4; }
+  .send { font:700 15px var(--body); min-height:44px; padding:0 18px; border:0; border-radius:8px; background:var(--pick); color:var(--pick-ink); cursor:pointer; }
+  .send:disabled { background:var(--tray-sub); opacity:.55; cursor:not-allowed; }
+  #fallback { width:100%; min-height:90px; font-size:14px; }
+  @media (max-width:640px) { .chap { columns:1; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>역사의 주인공은 나다</h1>
+  <p class="meta">흥왕교회 · 박찬 담임목사 · 고린도전서 3:21–23 · 2026년 11월 8일 주일오전예배</p>
+
+  <p class="lead">이 설교로 쇼츠 6편을 만들었어요. 영상을 보시고 올릴 3편을 골라 주세요.</p>
+  <p class="sub">고른 뒤 아래쪽의 ‘선택 내용 복사’를 누르고 담당자에게 카카오톡 등으로 붙여 넣어 보내 주세요. 이 페이지에는 선택이 저장되거나 자동으로 전달되지 않아요.</p>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="note">
+    <p>쇼츠는 설교의 일부 문장을 골라 이어 붙인 영상이에요. 맨 앞에는 뒤에 나오는 문장을 한 번 먼저 보여 줘요. 각 영상 아래의 ‘설교 위치’는 아래 설교 영상의 시간이에요.</p>
+    <p>자막은 자동 받아쓰기를 다듬은 것이라 표현이 실제 말씀과 조금 다를 수 있어요. 고치고 싶은 말이나 빼고 싶은 부분이 있으면 아래에 적어 주세요.</p>
+  </div>
+
+  <label for="memo">의견 (선택 내용과 함께 복사돼요)</label>
+  <textarea id="memo" placeholder="예: 2번은 자막의 ‘맨날’을 빼 주세요"></textarea>
+
+  <h2>설교 전체 영상 (38분 6초)</h2>
+  <video id="long" class="wide" controls playsinline preload="metadata" src="long_0.mp4" poster="poster_long.jpg"></video>
+  <div class="parts" id="parts"></div>
+  <p class="sub">미리보기용 저화질이에요. 10분씩 나눠 올렸고 다음 부분이 이어서 재생돼요.</p>
+  <ul class="chap" id="chap"></ul>
+  <div class="dl" style="margin-top:12px"><a href="https://github.com/fastkorea12-png/heungwang-sermon-preview-1108/releases/download/files/heungwang-1108-longform-1080p.mp4">1080p 원본 받기 (832MB)</a><a href="https://github.com/fastkorea12-png/heungwang-sermon-preview-1108/releases/download/files/heungwang-1108-sermon.md">설교문 받기</a></div>
+
+  <h2>설교 영상 썸네일</h2>
+  <img class="wide" src="thumb.jpg" alt="설교 영상 썸네일: 붓글씨 제목 역사의 주인공은 나다와 설교하는 목사님">
+  <div class="dl" style="margin-top:10px"><a href="https://github.com/fastkorea12-png/heungwang-sermon-preview-1108/releases/download/files/heungwang-1108-longform-thumb.png">썸네일 PNG 받기</a></div>
+</main>
+
+<div class="tray" role="region" aria-label="선택한 쇼츠">
+  <div>
+    <span class="count" id="count">0 / 3편</span>
+    <span class="picked" id="picked">아직 고르지 않았어요</span>
+    <button class="send" id="send" type="button" disabled>선택 내용 복사</button>
+    <textarea id="fallback" hidden readonly aria-label="복사할 내용"></textarea>
+  </div>
+</div>
+
+<script>
+  const REL = 'https://github.com/fastkorea12-png/heungwang-sermon-preview-1108/releases/download/files/heungwang-1108-';
+  const SHORTS = [
+    { t:'당신은 엑스트라가 아닙니다', d:'59초', s:'명작 영화의 엑스트라 이야기에서 시작해 “감독은 하나님, 다 그분의 은혜”로 이어지고 “하나님이 나를 붙드시니까”로 맺어요.', w:'2:18–4:29, 23:59', mb:36 },
+    { t:'인생이 멀미 나는 진짜 이유', d:'55초', s:'운전자는 멀미를 안 하는데 옆자리 사람은 하는 이야기. “하나님이 알아서 하시겠지”의 문제를 짚고 “하나님을 붙잡으라”로 맺어요.', w:'27:40–30:30', mb:35 },
+    { t:'붙잡고 있는 건 내가 아니었다', d:'56초', s:'“내가 끝까지 갈 수 있을까요?”라는 물음에 구원의 줄을 잡고 계신 분은 하나님이라고 답하고, 돌이켜 하나님을 바라보라고 맺어요.', w:'33:06–35:36', mb:35 },
+    { t:'주눅 들 이유가 없습니다', d:'58초', s:'못나고 연약한 우리를 하나님이 그 자리에 세우신다는 이야기. 사람이나 가진 것이 아니라 “하나님만 자랑”하자는 소망으로 맺어요.', w:'8:55–10:30', mb:0 },
+    { t:'‘저 사람 때문에’로 끝내지 마세요', d:'56초', s:'“악은 악입니다”, “저도 아픕니다”를 먼저 말하고, 아픔을 하나님께 가져가면 일어설 힘을 주신다고 맺어요.', w:'15:54, 18:27–20:32', mb:0 },
+    { t:'속은 문드러졌는데 웃으라고요?', d:'59초', s:'도움을 구하고 경계를 만들고 책임을 물어야 한다고 먼저 말한 뒤, 상처를 하나님께 가져가 회개하면 새 출발할 힘을 주신다고 맺어요.', w:'31:39–33:03', mb:0 },
+  ];
+  const MAX = 3, KEY = 'heungwang-1108-picks';
+  let picks = [];
+  try { picks = JSON.parse(localStorage.getItem(KEY) || '[]').filter(n => SHORTS[n]); } catch (e) {}
+
+  const grid = document.getElementById('grid');
+  SHORTS.forEach((s, i) => {
+    const n = i + 1, c = document.createElement('article');
+    c.className = 'short';
+    c.innerHTML = `<video controls playsinline preload="none" src="short_${n}.mp4" poster="poster_${n}.jpg"></video>
+      <div><span class="num">${n}번 · ${s.d}</span><h3></h3></div>
+      <p class="desc"></p><p class="where">설교 위치 ${s.w}</p>
+      <div class="dl"><a href="${REL}short${n}.mp4">1080p 영상 받기</a><a href="${REL}short${n}-thumb.png">썸네일 받기</a></div>
+      <button class="choose" type="button" id="choose-${n}"></button>`;
+    c.querySelector('h3').textContent = s.t;
+    c.querySelector('.desc').textContent = s.s;
+    c.querySelector('.choose').onclick = () => toggle(i);
+    grid.appendChild(c);
+  });
+  document.querySelectorAll('.short video').forEach(v => v.addEventListener('play', () => {
+    document.querySelectorAll('video').forEach(o => { if (o !== v) o.pause(); });
+  }));
+
+  function message() {
+    const lines = picks.slice().sort((a, b) => a - b).map(i => `${i + 1}번 ${SHORTS[i].t}`);
+    const memo = document.getElementById('memo').value.trim();
+    return `[흥왕교회 11월 8일 쇼츠 선택]\n${lines.join('\n')}` + (memo ? `\n\n의견: ${memo}` : '');
+  }
+  function render() {
+    document.querySelectorAll('.short').forEach((c, i) => {
+      const on = picks.includes(i), b = c.querySelector('.choose');
+      c.classList.toggle('on', on);
+      b.textContent = on ? `선택함 (${i + 1}번) · 취소` : '이 영상 선택';
+      b.setAttribute('aria-pressed', on);
+      b.disabled = !on && picks.length >= MAX;
+    });
+    document.getElementById('count').textContent = `${picks.length} / ${MAX}편`;
+    document.getElementById('picked').textContent = picks.length
+      ? picks.slice().sort((a, b) => a - b).map(i => `${i + 1}번`).join(', ') + (picks.length < MAX ? ` · ${MAX - picks.length}편 더 고를 수 있어요` : ' 선택')
+      : '아직 고르지 않았어요';
+    document.getElementById('send').disabled = !picks.length;
+    document.getElementById('fallback').hidden = true;
+    try { localStorage.setItem(KEY, JSON.stringify(picks)); } catch (e) {}
+  }
+  function toggle(i) {
+    picks = picks.includes(i) ? picks.filter(x => x !== i) : picks.concat(i);
+    render();
+  }
+  const send = document.getElementById('send');
+  send.onclick = async () => {
+    const text = message(), box = document.getElementById('fallback');
+    try {
+      await navigator.clipboard.writeText(text);
+      send.textContent = '복사했어요';
+      setTimeout(() => { send.textContent = '선택 내용 복사'; }, 2200);
+    } catch (e) {
+      box.value = text; box.hidden = false; box.focus(); box.select();
+      send.textContent = '아래 글을 복사해 주세요';
+      setTimeout(() => { send.textContent = '선택 내용 복사'; }, 3500);
+    }
+  };
+  render();
+
+  const STARTS = [0, 600, 1200, 1800], N = 4;
+  const v = document.getElementById('long'), partsEl = document.getElementById('parts');
+  let cur = 0;
+  const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+  function load(i, t, play) {
+    if (i !== cur) { cur = i; v.src = 'long_' + i + '.mp4'; }
+    const go = () => { v.currentTime = t; if (play) v.play().catch(() => {}); };
+    if (v.readyState >= 1) go(); else v.addEventListener('loadedmetadata', go, { once:true });
+    [...partsEl.children].forEach((b, k) => b.classList.toggle('on', k === i));
+  }
+  for (let i = 0; i < N; i++) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.textContent = fmt(STARTS[i]) + '부터';
+    b.onclick = () => load(i, 0, true);
+    partsEl.appendChild(b);
+  }
+  partsEl.children[0].classList.add('on');
+  v.addEventListener('ended', () => { if (cur < N - 1) load(cur + 1, 0, true); });
+  const CH = [[0,'본문 봉독 (고전 3:21–23)'],[38,'역사의 주인공이 나라고요?'],[138,'명작에는 엑스트라가 없다'],[289,'고린도교회의 배경: 분쟁의 뿌리'],[413,'일꾼은 주인이 될 수 없다'],[535,'감독이신 하나님, 주인공급으로 세우신다'],[630,'작은 교회 안의 비교와 서운함'],[810,'만물이 다 너희 것: 하나님의 섭리'],[954,'악은 악이다, 그러나 하나님의 주권 안에'],[1107,'“저 사람 때문에”가 마지막 말이 되면 안 된다'],[1285,'너희는 그리스도의 것'],[1433,'믿음을 쓰라'],[1516,'주권이 책임을 없애지는 않는다'],[1660,'인생의 멀미'],[1871,'상처와 감정을 하나님께'],[1984,'내가 끝까지 갈 수 있을까요?'],[2155,'말씀을 맺으며: 이번 주 세 가지']];
+  const ch = document.getElementById('chap');
+  CH.forEach(([s, t]) => {
+    const li = document.createElement('li'), b = document.createElement('button');
+    b.type = 'button'; b.textContent = fmt(s);
+    b.onclick = () => { let i = 0; while (i < N - 1 && s >= STARTS[i + 1]) i++; load(i, s - STARTS[i], true); v.scrollIntoView({ behavior:'smooth', block:'center' }); };
+    li.append(b, document.createTextNode(t)); ch.appendChild(li);
+  });
+</script>
+</body>
+</html>
